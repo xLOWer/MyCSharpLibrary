@@ -8,34 +8,6 @@ using Newtonsoft.Json;
 
 namespace MyNamespace
 {
-    /// <summary>
-    /// General
-    /// 
-    /// DbManager v0.1a / author: xlower / release: 18 aug 2019
-    /// 
-    /// 
-    /// How to use
-    /// 
-    /// 1. Install NuGet package Newtonsoft.Json
-    /// 1. Create class
-    /// 2. Mark it with [TableManagerAttribute(SchemeName, TableName)] (can skip)
-    ///    If item 2 is omitted, then the class name is considered the name of the table
-    /// 3. Make Connection.Configure() for create connection of type you want
-    /// 4. Connection.Check() (can skip)
-    /// 
-    /// 
-    /// Examples:
-    /// 
-    /// [TableManagerAttribute(TableName="test")] 
-    /// public class Test{  public int Id { get; set; }  public string Name { get; set; }  }
-    /// 
-    /// DbManager.Connection.Configure( new MySqlConnection( connString ) );
-    /// DbManager.InsertNewEntity<Test,MySqlCommand>(  new TestModel() { Id=0, Name="name0" }  );
-    /// var listOfTestEntities = DbManager.SelectEntity<Test, MySqlCommand>();
-    /// 
-    /// 
-    /// If you find bugs/errors or want to suggest something, then write to the mail: venick007@gmail.com
-    /// </summary>
     public class DbManager
     {
         internal static void ExecuteCommands<TCommand>(List<TCommand> commands) where TCommand : DbCommand, new()
